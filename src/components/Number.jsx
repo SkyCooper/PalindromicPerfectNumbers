@@ -19,8 +19,8 @@ const Number = () => {
         <p>
           <span>What is perfect numbers?</span> <br /> In number theory, a
           perfect number is a positive integer that is equal to the sum of its
-          positive divisors, excluding the number itself. <br /> For instance, 6 has
-          divisors 1, 2 and 3, and 1 + 2 + 3 = 6, so 6 is a perfect number.
+          positive divisors, excluding the number itself. <br /> For instance, 6
+          has divisors 1, 2 and 3, and 1 + 2 + 3 = 6, so 6 is a perfect number.
         </p>
       </div>
       <div className="inputs">
@@ -32,8 +32,8 @@ const Number = () => {
         <button>List Perfect Number</button>
       </div>
       <div className="results">
-        <textarea name="" id="" cols="15" rows="15"></textarea>
-        <textarea name="" id="" cols="15" rows="15"></textarea>
+        <textarea name="Palindrome" id="palin" cols="15" rows="15"></textarea>
+        <textarea name="Perfect" id="perf" cols="15" rows="15"></textarea>
       </div>
     </div>
   );
