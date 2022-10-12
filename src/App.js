@@ -1,7 +1,8 @@
+import Number from "./components/Number";
 
 
 const App = () => {
-  return <h1>Template compiled successfully</h1>;
+  return <Number/>;
 }
 
 export default App
