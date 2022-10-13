@@ -1,7 +1,54 @@
 import React from "react";
 import "./number.scss";
+import { useState } from "react";
 
+  let lowNumber;
+  let highNumber;
 const Number = () => {
+  const [numberPoli, setNumberPoli] = useState([]);
+  const [numberPer, setNumberPer] = useState([]);
+
+  const changelowNumber = (e) => {
+    lowNumber = e.target.value;
+    console.log(lowNumber);
+  };
+  const changehighNumber = (e) => {
+    highNumber = e.target.value;
+    console.log(highNumber);
+  };
+
+  const listPalindrome = () => {
+    let array = [];
+    for (let i = lowNumber; i < highNumber; i++) {
+      if (String(i) === String(i).split("").reverse().join("")) {
+        array.push(i);
+      }
+    }
+    setNumberPoli(array);
+    // return array
+  };
+  // console.log(listPalindrome());
+
+  const listPerfect = () => {
+    let array = [];
+    for (let i = lowNumber; i < highNumber; i++) {
+      let temp = 0;
+      for (let j = 1; j <= i / 2; j++) {
+        if (i % j === 0) {
+          temp += j;
+        }
+      }
+      if ((temp === i) & (temp !== 0)) {
+        array.push(temp);
+      }
+    }
+    setNumberPer(array);
+
+    // console.log(array);
+  };
+
+  // console.log(listPerfect());
+
   return (
     <div className="container">
       <h1>Palindromic and Perfect Numbers</h1>
@@ -20,20 +67,33 @@ const Number = () => {
           <span>What is perfect numbers?</span> <br /> In number theory, a
           perfect number is a positive integer that is equal to the sum of its
           positive divisors, excluding the number itself. <br /> For instance, 6
-          has divisors 1, 2 and 3, and 1 + 2 + 3 = 6, so 6 is a perfect number.
+          is a perfect number because has divisors 1, 2 and 3, and 1 + 2 + 3 =
+          6, AND 28 is a perfect number because (1 + 2 + 4 + 7 + 14) = 28
         </p>
       </div>
       <div className="inputs">
-        <input placeholder="first number" />
-        <input type="number" placeholder="second number" />
+        <input onChange={changelowNumber} placeholder="first number" />
+        <input
+          onChange={changehighNumber}
+          type="number"
+          placeholder="second number"
+        />
       </div>
       <div className="buttons">
-        <button>List Palindrome</button>
-        <button>List Perfect Number</button>
+        <button onClick={listPalindrome}>List Palindrome</button>
+        <button onClick={listPerfect}>List Perfect Number</button>
       </div>
       <div className="results">
-        <textarea name="Palindrome" id="palin" cols="15" rows="15"></textarea>
-        <textarea name="Perfect" id="perf" cols="15" rows="15"></textarea>
+        <div>
+          {numberPoli.map((item, index) => (
+            <p key={index}>{item}</p>
+          ))}
+        </div>
+        <div>
+          {numberPer.map((item, index) => (
+            <p key={index}>{item}</p>
+          ))}
+        </div>
       </div>
     </div>
   );
