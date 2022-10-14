@@ -1,6 +1,7 @@
 import React from "react";
 import "./number.scss";
 import { useState } from "react";
+import { v1 as uuid } from "uuid";
 
   let lowNumber;
   let highNumber;
@@ -90,8 +91,8 @@ const Number = () => {
           ))}
         </div>
         <div>
-          {numberPer.map((item, index) => (
-            <p key={index}>{item}</p>
+          {numberPer.map((item) => (
+            <p key={uuid()}>{item}</p>
           ))}
         </div>
       </div>
