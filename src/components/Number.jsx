@@ -3,8 +3,8 @@ import "./number.scss";
 import { useState } from "react";
 import { v1 as uuid } from "uuid";
 
-  let lowNumber;
-  let highNumber;
+let lowNumber = 0;
+let highNumber = 0;
 const Number = () => {
   const [numberPoli, setNumberPoli] = useState([]);
   const [numberPer, setNumberPer] = useState([]);
@@ -39,7 +39,7 @@ const Number = () => {
           temp += j;
         }
       }
-      if ((temp === i) & (temp !== 0)) {
+      if (temp === i) {
         array.push(temp);
       }
     }
